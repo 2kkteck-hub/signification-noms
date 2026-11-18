@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signification des Noms et Prénoms</title>
+    <meta name="description" content="Découvrez la signification, l'origine et l'histoire de votre nom et prénom">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">Signification des Noms</span>
+            </div>
+            <div class="nav-search">
+                <form id="searchForm">
+                    <input type="text" id="searchInput" placeholder="Rechercher un nom ou prénom..." autocomplete="off">
+                    <button type="submit" class="search-btn">Rechercher</button>
+                </form>
+                <div id="searchSuggestions" class="suggestions"></div>
+            </div>
+            <div class="nav-actions">
+                <button id="randomBtn" class="nav-btn">🎲 Aléatoire</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Quelle est la signification de votre nom ?</h1>
+            <p>Découvrez l'origine, l'histoire et la signification de milliers de noms et prénoms du monde entier.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" id="statCount">1 200+</span>
+                    <span class="stat-label">noms répertoriés</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Section Recherche rapide -->
+    <section class="quick-search">
+        <div class="container">
+            <h2><span class="section-icon">🔍</span>Recherche rapide</h2>
+            <div class="search-card">
+                <input type="text" id="quickSearch" placeholder="Tapez un nom ou prénom..." autocomplete="off">
+                <div id="quickResults" class="quick-results"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Noms populaires -->
+    <section class="popular-names">
+        <div class="container">
+            <div class="section-header">
+                <h2><span class="section-icon">👑</span>Noms populaires</h2>
+                <a href="#" class="view-all">Voir tous les noms</a>
+            </div>
+            <div class="names-grid" id="popularGrid">
+                <!-- Noms chargés par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Découverte -->
+    <section class="discovery">
+        <div class="container">
+            <div class="discovery-card">
+                <div class="discovery-content">
+                    <h2><span class="section-icon">🎯</span>Trouvez votre nom en un clic</h2>
+                    <p>Entrez simplement votre nom ou prénom ci-dessous pour découvrir instantanément sa signification, son origine et son histoire.</p>
+                    <div class="discovery-actions">
+                        <input type="text" id="discoveryInput" placeholder="Votre nom ou prénom..." autocomplete="off">
+                        <button id="discoveryBtn" class="btn-primary">Découvrir la signification</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Modal / Panneau de détail -->
+    <div id="nameModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-header" id="modalHeader">
+                <h1 id="modalName">Nom</h1>
+                <span id="modalGender" class="gender-badge"></span>
+            </div>
+            <div class="modal-body">
+                <div class="detail-section">
+                    <h3>📖 Signification</h3>
+                    <p id="modalSignification"></p>
+                </div>
+                <div class="detail-grid">
+                    <div class="detail-card">
+                        <h4>🌍 Origine</h4>
+                        <p id="modalOrigine"></p>
+                    </div>
+                    <div class="detail-card">
+                        <h4>👥 Genre</h4>
+                        <p id="modalGenre"></p>
+                    </div>
+                    <div class="detail-card">
+                        <h4>📊 Popularité</h4>
+                        <p id="modalPopularite"></p>
+                    </div>
+                    <div class="detail-card">
+                        <h4>🎂 Jour de fête</h4>
+                        <p id="modalFete"></p>
+                    </div>
+                    <div class="detail-card">
+                        <h4>🔤 Variantes</h4>
+                        <p id="modalVariantes"></p>
+                    </div>
+                    <div class="detail-card">
+                        <h4>⭐ Personnes célèbres</h4>
+                        <p id="modalCelebres"></p>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h3>📜 Étymologie et histoire</h3>
+                    <p id="modalEtymologie"></p>
+                </div>
+                <div class="modal-actions">
+                    <button id="modalFavBtn" class="btn-outline">⭐ Ajouter aux favoris</button>
+                    <button id="modalShareBtn" class="btn-outline">🔗 Partager</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Favoris -->
+    <section class="favorites-section" id="favoritesSection" style="display:none;">
+        <div class="container">
+            <h2><span class="section-icon">⭐</span>Vos favoris</h2>
+            <div class="names-grid" id="favoritesGrid"></div>
+            <button id="clearFavorites" class="btn-outline">Vider les favoris</button>
+        </div>
+    </section>
+
+    <!-- Historique -->
+    <section class="history-section" id="historySection" style="display:none;">
+        <div class="container">
+            <h2><span class="section-icon">🕒</span>Votre historique</h2>
+            <div class="names-grid" id="historyGrid"></div>
+            <button id="clearHistory" class="btn-outline">Effacer l'historique</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-icon">✨</span>
+                    <span class="logo-text">Signification des Noms</span>
+                </div>
+                <p>Découvrez la signification de votre nom et prénom. Fait avec ❤️ en français.</p>
+                <div class="footer-social">
+                    <span>📧</span> <span>🔗</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data-noms.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
