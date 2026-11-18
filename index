@@ -1,0 +1,8 @@
+signification-noms/ (racine)
+├── index.html        ← DOIT ÊTRE ICI
+├── vercel.json       ← DOIT ÊTRE ICI
+├── css/
+│   └── style.css
+└── js/
+    ├── data-noms.js
+    └── app.js

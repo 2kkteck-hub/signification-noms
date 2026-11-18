@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🌟 Signification des Noms et Prénoms
 
 Une application web simple, rapide et moderne pour découvrir la signification, l'origine et l'histoire de tout nom ou prénom.
@@ -112,3 +113,6 @@ Libre d'utilisation et de modification.
 ---
 
 Fait avec ❤️ pour découvrir la beauté des noms et prénoms.
+=======
+# signification-noms
+>>>>>>> 8607376af2c26b59e987fd0904ce6fe1d3ec3262
